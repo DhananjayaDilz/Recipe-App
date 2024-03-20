@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react'
-import { View,Text,StyleSheet,ScrollView,Image } from 'react-native'
+import { View,Text,StyleSheet,ScrollView,Image, TextInput } from 'react-native'
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -21,6 +21,9 @@ export default function HomeScreen() {
             <Image source={require("../../assets/images/bell.png")} style={{height:hp(6) ,width:hp(6)}}/>
 
           </View>
+
+
+
           <View>
             <Text style={{
               paddingLeft:8,
@@ -40,6 +43,20 @@ export default function HomeScreen() {
             }}>
               Choose as your</Text><Text style={{color:"#FF9843",fontSize:48,fontWeight:"bold",letterSpacing:9,marginLeft:-15,marginTop:-10}} > Favours </Text>
           </View>
+
+
+          <View style={styles.searchBar}>
+            <TextInput 
+            placeholder='Search your food item'
+            placeholderTextColor={"black"}
+            style={{fontSize:hp(2)}}
+            classname="flex-1 text-base mb-1 pl-3 tracking-wider"
+            >
+              
+            </TextInput>
+            <Image source={require("../../assets/images/lense.png")} style={{height:hp(3.5) ,width:hp(3.5),marginLeft:170}}/>
+
+          </View>
         </ScrollView>
     </View>
   )
@@ -57,6 +74,18 @@ const styles=StyleSheet.create({
     justifyContent:"space-between",
     alignItems:"center",
     marginBottom:2,
+
+  },
+  searchBar:{
+    flexDirection:"row",
+    marginHorizontal:4,
+    backgroundColor:"#FFF6F4",
+    borderRadius: 50,
+    padding:10,
+    marginTop:40,
+    borderColor:"#111",
+    borderWidth:1
+   
 
   }
 });
