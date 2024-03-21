@@ -5,6 +5,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import Categories from '../components/Categories';
 
 export default function HomeScreen() {
   return (
@@ -56,7 +57,10 @@ export default function HomeScreen() {
             </TextInput>
             <Image source={require("../../assets/images/lense.png")} style={{height:hp(3.5) ,width:hp(3.5),marginLeft:170}}/>
 
+
           </View>
+          
+          <Categories></Categories>
         </ScrollView>
     </View>
   )
