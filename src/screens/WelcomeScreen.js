@@ -6,6 +6,9 @@ import {
     heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import Animated, { useSharedValue, withSpring } from 'react-native-reanimated';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+
 
 
 export default function WelcomeScreen() {
@@ -13,6 +16,7 @@ export default function WelcomeScreen() {
     const navigation = useNavigation();
     const ring1Padding =useSharedValue(0);
     const ring2Padding =useSharedValue(0);
+   
 
     useEffect(()=>{
         ring1Padding.value=0;
@@ -44,7 +48,7 @@ export default function WelcomeScreen() {
             <Text style={styles.helloFoody}>Hello Foody</Text>
             </View>
             <TouchableOpacity style={styles.goButtn}>
-                <Text style={{fontWeight:"bold",fontSize:15}}>Lets Go</Text>
+                <Text style={{fontWeight:"bold",fontSize:15}} onPress={() => navigation.navigate('Home')}>Lets Go</Text>
             </TouchableOpacity>
            
         </View>
