@@ -7,6 +7,8 @@ import {
 } from 'react-native-responsive-screen';
 import Categories from '../components/Categories';
 import axios from 'axios';
+import Recipes from '../components/AllRecipes';
+
 
 export default function HomeScreen() {
 
@@ -21,7 +23,7 @@ export default function HomeScreen() {
     try {
       const response = await axios.get('https://themealdb.com/api/json/v1/1/categories.php');
       //console.log(response.data)
-      if (response&&response.data){
+      if (response && response.data) {
         setCtegories(response.data.categories);
       }
     } catch (err) {
@@ -80,9 +82,13 @@ export default function HomeScreen() {
 
 
         </View>
-
-        <Categories categories={categories} activeCategory={activeCategory} setActiveCategory={setActiveCategory}></Categories>
-      </ScrollView>
+          <View>
+        { categories.length>0 && <Categories categories={categories} activeCategory={activeCategory} setActiveCategory={setActiveCategory}></Categories>}    
+        </View>
+        <View>
+          <Recipes categories={categories}></Recipes>
+        </View>
+         </ScrollView>
     </View>
   )
 }
